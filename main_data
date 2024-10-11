@@ -1,0 +1,32 @@
+clc
+clear
+close all
+
+image=imread("E:\MsCOCO\test2017\000000006249.jpg");
+
+ image=rgb2gray(image);
+ imwrite(uint8(image),"E:\小论文1\4.5\原图\6.png");
+
+figure(1)
+imshow(image);
+image=double(image);
+[m,n]=size(image);
+I=imread("E:\MsCOCO\test2017\000000006249.jpg");
+
+I=rgb2gray(I);
+
+figure(2)
+imshow(I);
+c=3;%聚类中心2
+v1=zeros(1,c);
+%% 
+
+err=1;
+m1=10; 
+
+    v1(1)=20;
+    v1(2)=85;
+    v1(3)=200;
+%     v1(4)=250;
+
+[GHFCM_Acc,GHFCM_Jaccard,GHFCM_mIoU,GHFCM_u,GHFCM_v,GHFCM_kk1]=GHFCMtu_hanshu(image,I,err,m1,m,n,v1,c);
